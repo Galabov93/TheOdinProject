@@ -1,0 +1,17 @@
+{
+    "name": "1.calculator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "start": "browser-sync start --server --files '**/*.html,**/*.css, **/*.js' --directory --port 7777",
+        "watch": "watchify main.js -o bundle.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "jest": "^22.4.3",
+        "watchify": "^3.11.0"
+    }
+}

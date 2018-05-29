@@ -1,0 +1,58 @@
+.library-header{
+    margin: 1em auto;
+    text-align: center;
+}
+
+.add-book-form{
+    max-width: 300px;
+    display: block;
+}
+
+.add-book-form label{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 1em;
+}
+
+input:not([type=submit]) {
+   /* omg so much cleaner */
+   border: none;
+   width: 100%;
+   border-bottom: 1px solid salmon;
+   text-align: center;
+   font-size: 5vw;
+}
+
+.library {
+    width:70%;
+    margin: 3em auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.book {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width:70%;
+    margin: 1em auto;
+}
+
+.books div{
+    text-align: center;
+}
+
+.header{
+    background-color: bisque;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.remove-book-btn{
+    border: none;
+    position: absolute;
+    left: 82%;
+    z-index: 2;
+}
+
+.remove-book-btn:hover{
+    cursor: pointer;
+}
