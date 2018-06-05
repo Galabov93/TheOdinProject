@@ -15,40 +15,53 @@
 <body>
 
     <h1 id="library-header">My library</h1>
-    <div class="add-book">Add a book</div>
+
+    <button class="add-book-btn">
+        <img src="images/add-book.svg" alt="book">
+    </button>
 
     <!-- Create a form for  -->
     <div class="book-form">
 
         <form class="add-book-form">
             <h2>Add a new book to the library</h2>
-
-            <label for="title">Book title:</label>
-            <input type="text" name="title">
-            <label for="author">Book author:</label>
-            <input type="text" name="author">
-            <label for="year">Year published:</label>
-            <input type="number" name="year">
-            <label for="year">How many pages:</label>
-            <input type="number" name="pages">
-            <label for="read">Read?</label>
-            <input type="checkbox" name="read">
+            <div>
+                <input type="text" autocomplete="off" required="" name="title">
+                <label for="title">Book title:</label>
+            </div>
+            <div>
+                <input type="text" autocomplete="off" required="" name="author">
+                <label for="author">Book author:</label>
+            </div>
+            <div>
+                <input type="number" autocomplete="off" required="" name="year">
+                <label for="year">Year published:</label>
+            </div>
+            <div>
+                <input type="number" autocomplete="off" required="" name="pages">
+                <label for="pages">How many pages:</label>
+            </div>
+            <div>
+                <label for="read">Read?</label>
+                <input type="checkbox" name="read">
+            </div>
             <input type="submit" value="Submit">
         </form>
     </div>
-
 
     <div class="library">
         <div class="header">Title</div>
         <div class="header">Author</div>
         <div class="header">Year</div>
         <div class="header">Pages</div>
+        <div class="header">Read?</div>
     </div>
     <div class="books">
 
     </div>
 
     <script src="main.js"></script>
+    <script src="animate.js"></script>
 </body>
 
 </html>

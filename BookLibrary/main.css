@@ -1,16 +1,65 @@
-.library-header{
+
+#library-header{
     margin: 1em auto;
     text-align: center;
+}
+
+.book-form{
+    display: none;
+    height: 0;
+    overflow: hidden;
+    transition: height 2s linear;
+}
+
+.book-form.is-visible{
+    display: block;
+    height: auto;
+}
+
+.add-book-btn{
+    width: 15vw;
+    display: block;
+    border:0;
+    background: none;
+    margin: 0 auto;
+}
+
+.add-book-btn:hover{
+    cursor: pointer;
 }
 
 .add-book-form{
     max-width: 300px;
     display: block;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.add-book-form label{
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.add-book-form div{
+    position: relative;
+}
+
+.add-book-form div label{
     font-family: 'Roboto', sans-serif;
-    margin-top: 1em;
+    position: absolute;
+    left: 0.1em;
+    bottom: 0.2em;
+    color: #999;     
+    transition: .5s;
+    pointer-events: none;
+    z-index: 5
+    ;
+}
+
+.add-book-form div input:focus ~ label,
+.add-book-form div input:valid ~ label
+{
+    left: -5em;
+    font-size: 16px;
 }
 
 input:not([type=submit]) {
@@ -19,21 +68,34 @@ input:not([type=submit]) {
    width: 100%;
    border-bottom: 1px solid salmon;
    text-align: center;
-   font-size: 5vw;
+   font-size: 2vw;
+}
+
+.add-book-form div:nth-child(6){
+    margin: 1em 0;
+}
+
+.add-book-form div:nth-child(6) label{
+    position: absolute;
+    left:29%;
 }
 
 .library {
     width:70%;
     margin: 3em auto 0 auto;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: 1fr 1fr 1fr 1fr 50px;
 }
 
+
 .book {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
     width:70%;
-    margin: 1em auto;
+    margin: 0 auto 0 auto;
+    border-bottom: 1px solid black;
+    background: #999;
+    padding-bottom: 3px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 50px;
 }
 
 .books div{
@@ -49,10 +111,11 @@ input:not([type=submit]) {
 .remove-book-btn{
     border: none;
     position: absolute;
-    left: 82%;
+    left: 86%;
     z-index: 2;
 }
 
 .remove-book-btn:hover{
     cursor: pointer;
 }
+

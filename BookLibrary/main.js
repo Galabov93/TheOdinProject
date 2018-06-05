@@ -1,31 +1,40 @@
 let myLibrary = []
 // bring up form button
-const addBookButton = document.querySelector('.add-book');
+const addBookForm = document.querySelector('.add-book-form')
 const bookList = document.querySelector('.books');
 const removeButton = document.querySelector('.remove-book-btn');
 
-function Book(title, author, year, pages) {
+// Form elements
+const titleField = document.querySelector('input[name=title]');
+const authorField = document.querySelector('input[name=author]');
+const yearField = document.querySelector('input[name=year]');
+const pagesField = document.querySelector('input[name=pages]');
+const readCheckbox = document.querySelector('input[name=read]');
+
+function Book(title, author, year, pages, read) {
     this.title = title;
     this.author = author;
     this.year = year;
     this.pages = pages;
+    this.read = read;
 }
 
-let book1 = new Book('My Book 1', 'YG', 1993, 9147);
-let book2 = new Book('My Book 2', 'YG', 1993, 9147);
-let book3 = new Book('My Book 3', 'YG', 1993, 9147);
 
-function addBookToLibrary(book) {
+function addBookToLibrary() {
+    let book = new Book(titleField.value, 
+                         authorField.value,
+                         yearField.value,
+                         pagesField.value,
+                         readCheckbox.value);
     myLibrary.push(book);
+    renderToTheScreen();
+	addBookForm.reset();   
 }
 
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-addBookToLibrary(book3);
 
-
-addBookButton.addEventListener('click', renderToTheScreen)
 bookList.addEventListener('click', removeBookFromList)
+addBookForm.addEventListener('submit', addBookToLibrary)
+
 
 function removeBookFromList(e) {
     e.preventDefault();
@@ -46,11 +55,14 @@ function renderToTheScreen() {
         div.classList.add('book');
         div.setAttribute('data-index', i)
 
-        div.innerHTML = `<div>${book.title}</div><div>${book.author}</div><div>${book.year}</div><div>${book.pages}<button data-index=${i} class="remove-book-btn"><i class="fas fa-minus"></i></button></div>`
-
+        div.innerHTML = `<div>${book.title}</div><div>${book.author}</div>
+        <div>${book.year}</div><div>${book.pages}
+        <button data-index=${i} class="remove-book-btn">
+        <i class="fas fa-minus"></i></button></div>
+        <input type="checkbox" ${book.read ? 'checked': ''}>        
+        `
+        
         bookList.appendChild(div)
 
     })
-
-    // bookList.innerHTML = allBooks;
 }
